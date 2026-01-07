@@ -1,0 +1,31 @@
+name: Build and Push Docker Image to ACR
+ 
+on:
+  push:
+    branches: [ "main" ]
+ 
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+ 
+      - name: Build e Push da imagem Docker
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+          VERSAO=$(echo $GITHUB_SHA | cut -c1-7)
+          
+          # Cria a imagem docker
+          echo A criar imagem "felicianocr.azurecr.io/appbraga:$VERSAO"
+          docker build -t "felicianocr.azurecr.io/appbraga:$VERSAO" .
+          
+          # Faz login no Azure Container Registry usando um secret
+          echo Fazendo login no Azure
+          ${{ secrets.DOCKERLOGIN }}
+          
+          # Envia a imagem para o ACR
+          echo Envio da imagem para Azure
+          docker push "felicianocr.azurecr.io/appbraga:$VERSAO
