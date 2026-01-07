@@ -19,8 +19,8 @@ jobs:
           VERSAO=$(echo $GITHUB_SHA | cut -c1-7)
           
           # Cria a imagem docker
-          echo A criar imagem "felicianocr.azurecr.io/appbraga:$VERSAO"
-          docker build -t "felicianocr.azurecr.io/appbraga:$VERSAO" /app
+          echo A criar imagem "felicianocr.azurecr.io/appmatheus:$VERSAO"
+          docker build -t "felicianocr.azurecr.io/appmatheus:$VERSAO" .
           
           # Faz login no Azure Container Registry usando um secret
           echo Fazendo login no Azure
@@ -28,4 +28,4 @@ jobs:
           
           # Envia a imagem para o ACR
           echo Envio da imagem para Azure
-          docker push "felicianocr.azurecr.io/appbraga:$VERSAO
+          docker push "felicianocr.azurecr.io/appmatheus:$VERSAO
