@@ -28,4 +28,4 @@ jobs:
           
           # Envia a imagem para o ACR
           echo Envio da imagem para Azure
-          docker push felicianocr.azurecr.io/appmatheus:$VERSAO
+          docker push "felicianocr.azurecr.io/appmatheus:$VERSAO"
