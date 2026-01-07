@@ -20,7 +20,7 @@ jobs:
           
           # Cria a imagem docker
           echo A criar imagem "felicianocr.azurecr.io/appbraga:$VERSAO"
-          docker build -t "felicianocr.azurecr.io/appbraga:$VERSAO" .
+          docker build -t "felicianocr.azurecr.io/appbraga:$VERSAO" /app
           
           # Faz login no Azure Container Registry usando um secret
           echo Fazendo login no Azure
