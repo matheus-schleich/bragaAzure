@@ -9,3 +9,4 @@ COPY . .
 CMD ["apache2", "start"]
 EXPOSE 80
 EXPOSE 443
+
